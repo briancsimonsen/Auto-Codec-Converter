@@ -16,18 +16,15 @@ ffmpegReady = 1
 # Directory Lister
 fileQueue = []
 for files in os.listdir(watchPath):
-    info = os.stat(files)
-    fileQueue.append(info)
+    fileQueue.append(files)
 
 
 # FFMPEG Launcher
 
 # FFMPEG Variables
-if fileQueue.amount() > 0 and ffmpegReady == 1:
-    fileName, fileExtension = os.path.splitext(info)
-    codec = "libx264"
-    command = [FFMPEG,
-               '-i', watchPath + fileName + fileExtension,
-               '-c:v', codec,
-               destinationPath + fileName + ".mp4"]
-    pipe = sp.Popen(command)
+if fileQueue.length() > 0 and ffmpegReady == 1:
+    for f in fileQueue:
+        (fileName,fileExtension) = os.path.splitext(fileQueue.pop())
+        codec = "libx264"
+        command = [ FFMPEG, "-i", watchPath + fileName + fileExtension, "-c:v", codec, destinationPath + fileName + ".mp4" ]
+        pipe = sp.Popen(command)
