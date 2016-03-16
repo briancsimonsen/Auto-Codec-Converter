@@ -3,9 +3,9 @@ import subprocess as sp
 import os
 
 # Declare Global Variables
-FFMPEG = "/bin/ffmpeg.exe"
-watchPath = "./IN"
-destinationPath = "./OUT"
+FFMPEG = "./ffmpeg.exe"
+watchPath = "../IN"
+destinationPath = "../OUT"
 ffmpegReady = 1
 
 # TODO Write Watch Folder Initialization
@@ -22,9 +22,9 @@ for files in os.listdir(watchPath):
 # FFMPEG Launcher
 
 # FFMPEG Variables
-if fileQueue.length() > 0 and ffmpegReady == 1:
+if len(fileQueue) > 0 and ffmpegReady == 1:
     for f in fileQueue:
         (fileName,fileExtension) = os.path.splitext(fileQueue.pop())
         codec = "libx264"
-        command = [ FFMPEG, "-i", watchPath + fileName + fileExtension, "-c:v", codec, destinationPath + fileName + ".mp4" ]
-        pipe = sp.Popen(command)
+        command = [ FFMPEG, "-i", watchPath + '/' +fileName + fileExtension, "-c:v", codec, destinationPath + '/' + fileName + ".mp4", ]
+        sp.run(command)
