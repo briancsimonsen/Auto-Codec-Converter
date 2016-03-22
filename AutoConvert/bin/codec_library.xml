@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<data>
+    <video>
+        <encoder name = "libx264">
+            <codecs>
+                <codec>H.264</codec>
+                <codec>MPEG-4</codec>
+            </codecs>
+            <param>-crf</param>
+            <paramMin>51</paramMin>
+            <paramMax>0</paramMax>
+            <paramRecommended>23</paramRecommended>
+            <description>Values of ±6 result in double/half avg. bitrate. 0 is lossless.</description>
+            <fileExtension>.mp4</fileExtension>
+        </encoder>
+        <encoder name = "libx265">
+            <codecs>
+                <codec>H.265</codec>
+                <codec>HEVC</codec>
+            </codecs>
+            <param>-crf</param>
+            <paramMin>51</paramMin>
+            <paramMax>0</paramMax>
+            <paramRecommended>28</paramRecommended>
+            <description>Values of ±6 result in double/half avg. bitrate. 0 is lossless.</description>
+        </encoder>
+        <encoder name = "libxvid">
+            <codecs>
+                <codec>Xvid MPEG-4</codec>
+            </codecs>
+            <param>-q:v</param>
+            <paramMin>31</paramMin>
+            <paramMax>1</paramMax>
+            <paramRecommended>4</paramRecommended>
+            <description>2 is visually lossless. Doubling the value results in half the bitrate. 1 has no analytical improvement.</description>
+            <libEnable>--enable-libxvid --enable-gpl</libEnable>
+        </encoder>
+        <encoder name = "libvpx">
+            <codecs>
+                <codec>VP8</codec>
+                <codec>VP9</codec>
+            </codecs>
+            <param>-crf</param>
+            <paramMin>63</paramMin>
+            <paramMax>0</paramMax>
+            <paramRecommended>10</paramRecommended>
+            <description>Lossy codec, highest recommended setting is 4.</description>
+            <libEnable>--enable-libvpx</libEnable>
+        </encoder>
+        <encoder name = "prores">
+            <codecs>
+                <codec>Apple ProRes</codec>
+            </codecs>
+            <param>-profile:v</param>
+            <paramMin>0</paramMin>
+            <paramMax>3</paramMax>
+            <paramRecommended>2</paramRecommended>
+            <description>No VBR support but highly recommended. 0 = proxy, 1 = lt, 2 = standard, 3 = high quality, 4444 is currently unsupported</description>
+            <fileExtension>.mov</fileExtension>
+        </encoder>
+        <encoder name = "mpeg1">
+            <codecs>
+                <codec>MPEG-1</codec>
+            </codecs>
+            <param>-q:v</param>
+            <paramMin>31</paramMin>
+            <paramMax>1</paramMax>
+            <paramRecommended>4</paramRecommended>
+            <description>2 is visually lossless. Doubling the value results in half the bitrate.</description>
+            <fileExtension>.mpeg</fileExtension>
+        </encoder>
+        <encoder name = "mpeg2">
+            <codecs>
+                <codec>MPEG-2</codec>
+            </codecs>
+            <param>-q:v</param>
+            <paramMin>31</paramMin>
+            <paramMax>1</paramMax>
+            <paramRecommended>4</paramRecommended>
+            <description>2 is visually lossless. Doubling the value results in half the bitrate.</description>
+            <fileExtension>.mpeg2</fileExtension>
+        </encoder>
+        <encoder name = "mpeg4">
+            <codecs>
+                <codec>MPEG-4 Option 2</codec>
+            </codecs>
+            <param>-q:v</param>
+            <paramMin>31</paramMin>
+            <paramMax>1</paramMax>
+            <paramRecommended>4</paramRecommended>
+            <description>2 is visually lossless. Doubling the value results in half the bitrate.</description>
+            <fileExtension>.mp4</fileExtension>
+        </encoder>
+        <encoder name = "flv">
+            <codecs>
+                <codec>FLV</codec>
+            </codecs>
+            <param>-q:v</param>
+            <paramMin>31</paramMin>
+            <paramMax>1</paramMax>
+            <paramRecommended>4</paramRecommended>
+            <description>2 is visually lossless. Doubling the value results in half the bitrate.</description>
+            <fileExtension>.flv</fileExtension>
+        </encoder>
+        <encoder name = "libtheora">
+            <codecs>
+                <codec>Theora</codec>
+            </codecs>
+            <param>-q:v</param>
+            <paramMin>0</paramMin>
+            <paramMax>10</paramMax>
+            <paramRecommended>7</paramRecommended>
+            <description>Not recommended but an open source lossy format. No VBR by default</description>
+            <libEnable>--enable-libtheora</libEnable>
+        </encoder>
+    </video>
+    <audio>
+        <encoder name = "libfdk_aac">
+            <codecs>
+                <codec>AAC</codec>
+            </codecs>
+            <param>-vbr</param>
+            <paramMin>1</paramMin>
+            <paramMax>5</paramMax>
+            <paramRecommended>4</paramRecommended>
+            <description>Highest quality encoder available with 4 equaling approximately 128kbps.</description>
+            <fileExtension>.aac</fileExtension>
+        </encoder>
+        <encoder name = "libmp3lame">
+            <codecs>
+                <codec>MP3</codec>
+            </codecs>
+            <param>-q:a</param>
+            <paramMin>9</paramMin>
+            <paramMax>0</paramMax>
+            <description>Using the LAME Project MP3 encoder a high quality MP3 audio can be extracted.</description>
+        </encoder>
+    </audio>
+</data>

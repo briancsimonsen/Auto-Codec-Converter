@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<data>
+    <preference name = "Current">
+        <watchFolder>../IN</watchFolder>
+        <destinationFolder>../OUT</destinationFolder>
+        <videoCodec>H.264</videoCodec>
+        <videoParam>7</videoParam>
+        <audioCodec>AAC</audioCodec>
+        <audioParam>4</audioParam>
+        <forceAspect>false</forceAspect>
+        <aspect>4:3</aspect>
+        <forceCopyright>false</forceCopyright>
+        <copyright>Example</copyright>
+    </preference>
+    <preference name = "Custom1">
+        <watchFolder>../IN</watchFolder>
+        <destinationFolder>../OUT</destinationFolder>
+        <videoCodec>H.264</videoCodec>
+        <videoParam>7</videoParam>
+        <audioCodec>AAC</audioCodec>
+        <audioParam>4</audioParam>
+        <forceAspect>false</forceAspect>
+        <aspect>4:3</aspect>
+        <forceCopyright>false</forceCopyright>
+        <copyright>Example</copyright>
+    </preference>
+    <preference name = "Custom2">
+        <watchFolder>../IN</watchFolder>
+        <destinationFolder>../OUT</destinationFolder>
+        <videoCodec>H.264</videoCodec>
+        <videoParam>7</videoParam>
+        <audioCodec>AAC</audioCodec>
+        <audioParam>4</audioParam>
+        <forceAspect>false</forceAspect>
+        <aspect>4:3</aspect>
+        <forceCopyright>false</forceCopyright>
+        <copyright>Example</copyright>
+    </preference>
+    <preference name = "Recommended">
+        <watchFolder>../IN</watchFolder>
+        <destinationFolder>../OUT</destinationFolder>
+        <videoCodec>H.264</videoCodec>
+        <videoParam>7</videoParam>
+        <audioCodec>AAC</audioCodec>
+        <audioParam>4</audioParam>
+        <forceAspect>false</forceAspect>
+        <aspect>4:3</aspect>
+        <forceCopyright>false</forceCopyright>
+        <copyright>Example</copyright>
+    </preference>
+</data>
