@@ -14,10 +14,34 @@ fileQueue = []
 
 # Start Up Protocol
 def start_up_protocol():
-    user_interface.user_interface()
+    #user_interface.user_interface()
     get_settings()
     validate_file_path()
     run()
+
+
+def get_settings():
+    root = eT.parse('user_prefs.xml').getroot()
+    global watch_folder
+    global destination_folder
+    global video_codec
+    global video_param
+    global audio_codec
+    global audio_param
+    global force_aspect
+    global aspect
+    global force_copyright
+    global copyright
+    watch_folder = root[0][0].text
+    destination_folder = root[0][1].text
+    video_codec = root[0][2].text
+    video_param = root[0][3].text
+    audio_codec = root[0][4].text
+    audio_param = root[0][5].text
+    force_aspect = root[0][6].text
+    aspect = root[0][7].text
+    force_copyright = root[0][8].text
+    copyright = root[0][9].text
 
 
 # Validate File Path
@@ -43,35 +67,9 @@ def run():
                 (file_name, file_extension) = os.path.splitext(fileQueue.pop())
                 command = [FFMPEG,
                            "-i", watch_folder + '/' + file_name + file_extension,
-                           "-c:v", video_codec,
+                           video_codec, "-crf", video_param,
                            destination_folder + '/' + file_name + ".mp4",
                            ]
                 sp.check_output(command)
                 os.remove(watch_folder + '/' + file_name + file_extension)
                 sleep(5)
-run()
-
-
-def get_settings():
-    validate_file_path()
-    root = eT.parse('user_prefs.xml').getroot()
-    global watch_folder
-    global destination_folder
-    global video_codec
-    global video_param
-    global audio_codec
-    global audio_param
-    global force_aspect
-    global aspect
-    global force_copyright
-    global copyright
-    watch_folder = root[0][1]
-    destination_folder = root[0][2]
-    video_codec = root[0][3]
-    video_param = root[0][4]
-    audio_codec = root[0][5]
-    audio_param = root[0][6]
-    force_aspect = root[0][7]
-    aspect = root[0][8]
-    force_copyright = root[0][9]
-    copyright = root[0][10]
