@@ -30,7 +30,10 @@ def validate_file_path():
 
 def file_add():
     for files in os.listdir(watch_folder):
-        if not(files in fileQueue):
+        amt = os.stat(watch_folder+"/"+files).st_size
+        sleep(.75)
+        amt2 = os.stat(watch_folder+"/"+files).st_size
+        if (not(files in fileQueue) and amt == amt2 ): 
             fileQueue.append(files)
 
 
@@ -49,7 +52,6 @@ def run():
                 sp.check_output(command)
                 os.remove(watch_folder + '/' + file_name + file_extension)
                 sleep(5)
-run()
 
 
 def get_settings():
