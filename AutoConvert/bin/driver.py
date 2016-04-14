@@ -81,13 +81,16 @@ def run():
             for f in fileQueue:
                 (file_name, old_file_extension) = os.path.splitext(fileQueue.pop())
                 command = [FFMPEG,
-                           " -i ", watch_folder + '/' + file_name + old_file_extension, ' ',
-                           v_codec_param, ' ', video_param, ' ',
-                           destination_folder + '/' + file_name + new_file_extension
+                           " -i ", "\"" + watch_folder + '/' + file_name + old_file_extension + "\"", ' ',
+                           v_codec_param, ' ', video_param, ' ', 
+                           "\"" + destination_folder + '/' + file_name + new_file_extension + "\""
                            ]
+                commandString = ""
                 if force_aspect == True:
                     command.append(" -aspect ")
                     command.append(aspect)
-                sp.check_output(''.join(command))
+                for j in command:
+                    commandString += j
+                sp.check_output(commandString)
                 os.remove(watch_folder + '/' + file_name + old_file_extension)
                 sleep(5)
