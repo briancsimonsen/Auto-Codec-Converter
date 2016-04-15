@@ -11,10 +11,10 @@ FFMPEG = "./ffmpeg.exe"
 ffmpegReady = 1
 fileQueue = []
 
-
+def start_process():
+    user_interface.user_interface()
 # Start Up Protocol
 def start_up_protocol():
-    # user_interface.user_interface()
     get_settings()
     validate_file_path()
     run()
