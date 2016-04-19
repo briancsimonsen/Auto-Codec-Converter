@@ -2,6 +2,7 @@ import xml.etree.ElementTree as eT
 from tkinter import *
 import driver
 import os
+from math import ceil
 # FFmpeg variables
 
 
@@ -61,7 +62,7 @@ def user_interface():
     bitvar = DoubleVar()
     def bitrModSet(value):
         currSettings["video_param_mod"] = (1/5.0) * bitvar.get() 
-    bitslide = Scale(win,variable=bitvar, from_=1, to=5, orient=HORIZONTAL,length=175,command=bitrModSet)
+    bitslide = Scale(win,variable=bitvar, from_=0, to=5, orient=HORIZONTAL,length=175,command=bitrModSet)
     bitslide.set(6)
     bitslide.grid(row=6,column=1,pady=5,columnspan=2)
 
@@ -72,7 +73,9 @@ def user_interface():
     vary.set(currSettings["video_codec"])
     def cSet(x):
         currSettings["video_codec"] = x
-    ops = OptionMenu(win,vary,"GoPro Cineform","AVI","DNxRAW","MPEG-4", command=cSet)
+    codecz = ["H.264","MPEG-4","H.265","HEVC","Xvid MPEG-4","VP8","VP9","Apple ProRes","MPEG-1","MPEG-2","MPEG-4 Option 2","FLV","Theora"]
+    list.sort(codecz)
+    ops = OptionMenu(win,vary,*codecz, command=cSet)
     ops.configure(width=25)
     ops.grid(row=8,column=1,pady=5,columnspan=2)
 
@@ -108,11 +111,12 @@ def user_interface():
     
     #Activation Button
     
+        
     def start_convert():
         #if(not(isValid())):
             #print terrible things
         #else:
-        #xml_write()
+        postSettings(currSettings)
         win.destroy()
         driver.start_up_protocol()
     active = Button(win,text = "Begin Conversion",command = start_convert)
@@ -139,3 +143,35 @@ def get_past_settings():
 
 
 # TODO Post Settings
+def postSettings(dicto):
+    tree = eT.parse('user_prefs.xml')
+    root = tree.getroot()
+    # Declare and set User Preferences
+    #global pastSettings
+    #pastSettings = {}
+    root[0][0].text = str(dicto["watch_folder"])  
+    root[0][1].text = str(dicto["destination_folder"])  
+    root[0][2].text = str(dicto["video_codec"])
+    #Write the Codec param using the codec info
+    library = eT.parse('codec_library.xml').getroot()
+    # iterate through encoders to look for correct codec to get encoder characteristics
+    pMin = 0
+    pMax = 0
+    for node in library.iter('encoder'):
+        for codec in node.iter('codec'):
+            if codec.text == str(dicto["video_codec"]):
+                pMin = int(node[2].text)
+                pMax = int(node[3].text)
+    pInt = pMax-pMin
+    pVal = pInt * float(dicto["video_param_mod"])
+    pVal = int(ceil(pVal))
+    if(pInt <0):
+        pVal *= -1
+        setter = pMin-pVal
+    else:
+        setter = pMin+pVal
+    root[0][3].text = str(setter) 
+    root[0][6].text = str(dicto["force_aspect"]) 
+    root[0][7].text = str(dicto["aspect"])
+    tree.write('user_prefs.xml')#user_prefs
+    
