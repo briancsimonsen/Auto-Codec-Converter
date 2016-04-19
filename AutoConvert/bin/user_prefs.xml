@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data>
-    <preference name = "Current">
+    <preference name="Current">
         <watchFolder>../IN</watchFolder>
         <destinationFolder>../OUT</destinationFolder>
         <videoCodec>MPEG-4</videoCodec>
@@ -10,7 +10,7 @@
         <forceAspect>False</forceAspect>
         <aspect>4:3</aspect>
     </preference>
-    <preference name = "Custom1">
+    <preference name="Custom1">
         <watchFolder>../IN</watchFolder>
         <destinationFolder>../OUT</destinationFolder>
         <videoCodec>H.264</videoCodec>
@@ -20,7 +20,7 @@
         <forceAspect>False</forceAspect>
         <aspect>4:3</aspect>
     </preference>
-    <preference name = "Custom2">
+    <preference name="Custom2">
         <watchFolder>../IN</watchFolder>
         <destinationFolder>../OUT</destinationFolder>
         <videoCodec>H.264</videoCodec>
@@ -30,7 +30,7 @@
         <forceAspect>False</forceAspect>
         <aspect>4:3</aspect>
     </preference>
-    <preference name = "Recommended">
+    <preference name="Recommended">
         <watchFolder>../IN</watchFolder>
         <destinationFolder>../OUT</destinationFolder>
         <videoCodec>H.264</videoCodec>

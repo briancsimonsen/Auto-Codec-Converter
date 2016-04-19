@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <data>
     <video>
-        <encoder name = "libx264">
+        <encoder name="libx264">
             <codecs>
                 <codec>H.264</codec>
                 <codec>MPEG-4</codec>
@@ -13,7 +13,7 @@
             <description>Values of ±6 result in double/half avg. bitrate. 0 is lossless.</description>
             <fileExtension>.mp4</fileExtension>
         </encoder>
-        <encoder name = "libx265">
+        <encoder name="libx265">
             <codecs>
                 <codec>H.265</codec>
                 <codec>HEVC</codec>
@@ -24,7 +24,7 @@
             <paramRecommended>28</paramRecommended>
             <description>Values of ±6 result in double/half avg. bitrate. 0 is lossless.</description>
         </encoder>
-        <encoder name = "libxvid">
+        <encoder name="libxvid">
             <codecs>
                 <codec>Xvid MPEG-4</codec>
             </codecs>
@@ -32,10 +32,12 @@
             <paramMin>31</paramMin>
             <paramMax>1</paramMax>
             <paramRecommended>4</paramRecommended>
-            <description>2 is visually lossless. Doubling the value results in half the bitrate. 1 has no analytical improvement.</description>
+            <description>2 is visually lossless. Doubling the value results in half the bitrate. 1 has no analytical
+                improvement.
+            </description>
             <libEnable>--enable-libxvid --enable-gpl</libEnable>
         </encoder>
-        <encoder name = "libvpx">
+        <encoder name="libvpx">
             <codecs>
                 <codec>VP8</codec>
                 <codec>VP9</codec>
@@ -47,7 +49,7 @@
             <description>Lossy codec, highest recommended setting is 4.</description>
             <libEnable>--enable-libvpx</libEnable>
         </encoder>
-        <encoder name = "prores">
+        <encoder name="prores">
             <codecs>
                 <codec>Apple ProRes</codec>
             </codecs>
@@ -55,10 +57,12 @@
             <paramMin>0</paramMin>
             <paramMax>3</paramMax>
             <paramRecommended>2</paramRecommended>
-            <description>No VBR support but highly recommended. 0 = proxy, 1 = lt, 2 = standard, 3 = high quality, 4444 is currently unsupported</description>
+            <description>No VBR support but highly recommended. 0 = proxy, 1 = lt, 2 = standard, 3 = high quality, 4444
+                is currently unsupported
+            </description>
             <fileExtension>.mov</fileExtension>
         </encoder>
-        <encoder name = "mpeg1">
+        <encoder name="mpeg1">
             <codecs>
                 <codec>MPEG-1</codec>
             </codecs>
@@ -69,7 +73,7 @@
             <description>2 is visually lossless. Doubling the value results in half the bitrate.</description>
             <fileExtension>.mpeg</fileExtension>
         </encoder>
-        <encoder name = "mpeg2">
+        <encoder name="mpeg2">
             <codecs>
                 <codec>MPEG-2</codec>
             </codecs>
@@ -80,7 +84,7 @@
             <description>2 is visually lossless. Doubling the value results in half the bitrate.</description>
             <fileExtension>.mpeg2</fileExtension>
         </encoder>
-        <encoder name = "mpeg4">
+        <encoder name="mpeg4">
             <codecs>
                 <codec>MPEG-4 Option 2</codec>
             </codecs>
@@ -91,7 +95,7 @@
             <description>2 is visually lossless. Doubling the value results in half the bitrate.</description>
             <fileExtension>.mp4</fileExtension>
         </encoder>
-        <encoder name = "flv">
+        <encoder name="flv">
             <codecs>
                 <codec>FLV</codec>
             </codecs>
@@ -102,7 +106,7 @@
             <description>2 is visually lossless. Doubling the value results in half the bitrate.</description>
             <fileExtension>.flv</fileExtension>
         </encoder>
-        <encoder name = "libtheora">
+        <encoder name="libtheora">
             <codecs>
                 <codec>Theora</codec>
             </codecs>
@@ -115,7 +119,7 @@
         </encoder>
     </video>
     <audio>
-        <encoder name = "libfdk_aac">
+        <encoder name="libfdk_aac">
             <codecs>
                 <codec>AAC</codec>
             </codecs>
@@ -126,7 +130,7 @@
             <description>Highest quality encoder available with 4 equaling approximately 128kbps.</description>
             <fileExtension>.aac</fileExtension>
         </encoder>
-        <encoder name = "libmp3lame">
+        <encoder name="libmp3lame">
             <codecs>
                 <codec>MP3</codec>
             </codecs>
