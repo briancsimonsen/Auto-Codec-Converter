@@ -20,6 +20,7 @@ def user_interface():
     currSettings["video_param_mod"] = 1
     currSettings["force_aspect"] = pastSettings["force_aspect"]
     currSettings["aspect"] = pastSettings["aspect"]
+    currSettings["hq"] = False
 
     # establishes TK Window
     global win
@@ -99,13 +100,15 @@ def user_interface():
 
     # High Quality Settings
     vary2 = IntVar(win)
-    vary2.set(currSettings["force_aspect"])
+    vary2.set(currSettings["hq"])
 
     def hqSet():
-        if (currSettings["force_aspect"] == True):
-            currSettings["force_aspect"] = False
+        if (currSettings["hq"]):
+            currSettings["video_param_mod"] = (1 / 50.0) * bitvar.get()
+            currSettings["hq"] = False
         else:
-            currSettings["force_aspect"] = True
+            currSettings["video_param_mod"] = 1
+            currSettings["hq"] = True
 
     hqs = Checkbutton(win, text="Force High Quality Settings", variable=vary2, onvalue=1, offvalue=0, command=hqSet)
     hqs.grid(row=9, column=1, pady=5, columnspan=2)
@@ -116,18 +119,22 @@ def user_interface():
 
     def radSet():
         currSettings["aspect"] = vary3.get()
+        if(currSettings["aspect"] != "Auto"):
+            currSettings["force_aspect"] = True
+        else:
+            currSettings["force_aspect"] = False
 
     vary3 = StringVar()
     vary3.set(currSettings["aspect"])
     opsr1 = Radiobutton(win, variable=vary3, text="Auto", value="Auto", command=radSet)
     opsr1.grid(row=2, column=4, pady=3)
-    opsr2 = Radiobutton(win, variable=vary3, text="4:3", value="4:3", command=radSet)
+    opsr2 = Radiobutton(win, variable=vary3, text="3:2", value="3:2", command=radSet)
     opsr2.grid(row=3, column=4, pady=3)
-    opsr3 = Radiobutton(win, variable=vary3, text="16:9", value="16:9", command=radSet)
+    opsr3 = Radiobutton(win, variable=vary3, text="4:3", value="4:3", command=radSet)
     opsr3.grid(row=4, column=4, pady=3)
-    opsr4 = Radiobutton(win, variable=vary3, text="1.3333", value="1.3333", command=radSet)
+    opsr4 = Radiobutton(win, variable=vary3, text="11:8", value="11:8", command=radSet)
     opsr4.grid(row=5, column=4, pady=3)
-    opsr5 = Radiobutton(win, variable=vary3, text="1.7777", value="1.7777", command=radSet)
+    opsr5 = Radiobutton(win, variable=vary3, text="16:9", value="16:9", command=radSet)
     opsr5.grid(row=6, column=4, pady=3)
 
     # Activation Button

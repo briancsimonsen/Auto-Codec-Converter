@@ -45,7 +45,7 @@ def get_settings():
     video_param = root[0][3].text
     audio_codec = root[0][4].text
     audio_param = root[0][5].text
-    force_aspect = root[0][6].text
+    force_aspect = bool(root[0][6].text)
     aspect = root[0][7].text
     # Attach codec_library.xml
     library = eT.parse('codec_library.xml').getroot()
@@ -70,12 +70,13 @@ def validate_file_path():
 # Add Files to File Queue
 def file_add():
     for files in os.listdir(watch_folder):
-        amt1 = os.stat(watch_folder + "/" + files).st_size
-        sleep(3)
-        amt2 = os.stat(watch_folder + "/" + files).st_size
         (file_name, old_file_extension) = os.path.splitext(files)
-        if (not (files in fileQueue) and amt1 == amt2 and old_file_extension in video_extentions):
-            fileQueue.append(files)
+        if(old_file_extension in video_extentions):
+            amt1 = os.stat(watch_folder + "/" + files).st_size
+            sleep(3)
+            amt2 = os.stat(watch_folder + "/" + files).st_size
+            if (not (files in fileQueue) and amt1 == amt2):
+                fileQueue.append(files)
 
 
 # FFMPEG Variables
@@ -98,7 +99,7 @@ def run():
                     commandString += j
                 sp.check_output(commandString)
                 os.remove(watch_folder + '/' + file_name + old_file_extension)
-                sleep(5)
+        sleep(5)
 
 
 video_extentions = ['.264', '.3g2', '.3gp', '.3gp2', '.3gpp', '.3gpp2', '.3mm', '.3p2', '.60d', '.787', '.89', '.aaf',
