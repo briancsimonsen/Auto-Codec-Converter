@@ -38,17 +38,17 @@
             <fileExtension>.mp4</fileExtension>
             <libEnable>--enable-libxvid --enable-gpl</libEnable>
         </encoder>
-        <encoder name = "Avid Nitris">
-            <codecs>
-                <codec>DNxHD</codec>
-            </codecs>
-            <param>-q:v</param>
-            <paramMin>31</paramMin>
-            <paramMax>1</paramMax>
-            <paramRecommended>4</paramRecommended>
-            <description>I have no idea what to put here so here's some filler text.</description>
-            <fileExtension>.mfx</fileExtension>
-        </encoder>
+        <!--<encoder name = "Avid Nitris">-->
+            <!--<codecs>-->
+                <!--<codec>DNxHD</codec>-->
+            <!--</codecs>-->
+            <!--<param>-mbd rd</param>-->
+            <!--<paramMin>31</paramMin>-->
+            <!--<paramMax>1</paramMax>-->
+            <!--<paramRecommended>4</paramRecommended>-->
+            <!--<description>I have no idea what to put here so here's some filler text.</description>-->
+            <!--<fileExtension>.mfx</fileExtension>-->
+        <!--</encoder>-->
         <encoder name = "libvpx">
             <codecs>
                 <codec>VP8</codec>
@@ -60,17 +60,17 @@
             <paramRecommended>10</paramRecommended>
             <description>Lossy codec, highest recommended setting is 4.</description>
             <fileExtension>.webm</fileExtension>
-			<libEnable>--enable-libvpx</libEnable>
+			      <libEnable>--enable-libvpx</libEnable>
         </encoder>
         <encoder name = "prores">
             <codecs>
                 <codec>Apple ProRes</codec>
             </codecs>
-            <param>-profile:v</param>
+            <param>-qscale</param>
             <paramMin>0</paramMin>
             <paramMax>3</paramMax>
             <paramRecommended>2</paramRecommended>
-            <description>Hello! No VBR support but highly recommended. 0 = proxy, 1 = lt, 2 = standard, 3 = high quality, 4444 is currently unsupported</description>
+            <description>Currently requires string inputs, integer inputs invalid. No VBR support but highly recommended. 0 = proxy, 1 = lt, 2 = standard, 3 = high quality, 4444 is currently unsupported</description>
             <fileExtension>.mov</fileExtension>
         </encoder>
         <encoder name = "mpeg1">

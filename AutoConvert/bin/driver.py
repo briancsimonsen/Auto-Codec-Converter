@@ -4,7 +4,7 @@ import subprocess as sp
 import xml.etree.ElementTree as eT
 from time import sleep
 
-#import user_interface
+import user_interface
 
 # Declare Global Variables
 FFMPEG = "./ffmpeg.exe"
@@ -13,8 +13,8 @@ fileQueue = []
 global video_extentions
 
 
-#def start_process():
-#    user_interface.user_interface()
+def start_process():
+   user_interface.user_interface()
 
 
 # Start Up Protocol
