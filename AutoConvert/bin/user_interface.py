@@ -204,3 +204,6 @@ def postSettings(dicto):
     root[0][6].text = str(dicto["force_aspect"])
     root[0][7].text = str(dicto["aspect"])
     tree.write('user_prefs.xml')  # user_prefs
+
+
+user_interface()
