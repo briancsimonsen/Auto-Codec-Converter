@@ -70,7 +70,7 @@
             <paramMin>0</paramMin>
             <paramMax>3</paramMax>
             <paramRecommended>2</paramRecommended>
-            <description>No VBR support but highly recommended. 0 = proxy, 1 = lt, 2 = standard, 3 = high quality, 4444 is currently unsupported</description>
+            <description>Hello! No VBR support but highly recommended. 0 = proxy, 1 = lt, 2 = standard, 3 = high quality, 4444 is currently unsupported</description>
             <fileExtension>.mov</fileExtension>
         </encoder>
         <encoder name = "mpeg1">
